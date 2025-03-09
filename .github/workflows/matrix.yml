@@ -8,17 +8,12 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest, macOS-latest]
-    name: Node ${{ matrix.node-version }} sample
+    name: Name Operating System ${{ matrix.operating-system }}
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
